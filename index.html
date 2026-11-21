@@ -23,6 +23,7 @@
   </a>
   <nav class="nav-links" aria-label="Primary">
     <a href="#work">Work</a>
+    <a href="#lab">Try it</a>
     <a href="#sites">Websites</a>
     <a href="#skills">Skills</a>
     <a href="#open-source">Open Source</a>
@@ -71,7 +72,7 @@
   <!-- ABOUT -->
   <section class="section" id="about" aria-labelledby="about-h">
     <div class="section-head">
-      <span class="section-num">01 / 07</span>
+      <span class="section-num">01 / 08</span>
       <h2 id="about-h">About</h2>
     </div>
     <div class="prose two-col">
@@ -87,7 +88,7 @@
   <!-- SELECTED WORK -->
   <section class="section" id="work" aria-labelledby="work-h">
     <div class="section-head">
-      <span class="section-num">02 / 07</span>
+      <span class="section-num">02 / 08</span>
       <h2 id="work-h">Selected Work</h2>
       <p class="section-sub">Production AI systems I built at SkyConnect, 2023 to present.</p>
     </div>
@@ -174,10 +175,40 @@
     </ol>
   </section>
 
+  <!-- LAB: interactive ship-noise widget -->
+  <section class="section" id="lab" aria-labelledby="lab-h">
+    <div class="section-head">
+      <span class="section-num">03 / 08</span>
+      <h2 id="lab-h">Try it: listening for ships</h2>
+      <p class="section-sub">An underwater microphone hears waves, whales and ships at once. My model has to say how much of what it hears is a ship. Drag the ship around the microphone and watch the recording change.</p>
+    </div>
+    <div class="lab">
+      <div class="lab-left">
+        <canvas id="lab-scene" class="lab-scene" tabindex="0" aria-label="Top view of the sea. Drag the ship, or use the arrow keys, to move it around the microphone."></canvas>
+        <div class="lab-controls">
+          <label>Ship size <input id="lab-size" type="range" min="-20" max="30" value="-2"><span id="lab-size-v"></span></label>
+          <label>Speed <input id="lab-speed" type="range" min="4" max="24" value="12"><span id="lab-speed-v"></span></label>
+        </div>
+      </div>
+      <div class="lab-right">
+        <canvas id="lab-grid" class="lab-grid" aria-label="What the microphone records: 15 minutes left to right, low to high pitch bottom to top. Red is the ship."></canvas>
+        <p class="lab-caption">What the microphone records: 15 minutes, low to high pitch. Red is the ship.</p>
+        <dl class="lab-props">
+          <dt>Closest distance</dt><dd id="lab-dmin"></dd>
+          <dt>Loudest minute vs the sea</dt><dd id="lab-loud"></dd>
+          <dt>High pitch lost to distance</dt><dd id="lab-high"></dd>
+          <dt>Ship's share of the sound</dt><dd id="lab-share" class="lab-share"></dd>
+        </dl>
+        <button type="button" class="btn btn-ghost" id="lab-play">Play the 15 minutes</button>
+      </div>
+    </div>
+    <p class="lab-note">Real physics: twice as far is 6 dB quieter, and high pitches fade faster with distance, so far ships sound deeper. The sea behind it is a real 15-minute recording. <a href="play/ships/">See the full walkthrough</a>.</p>
+  </section>
+
   <!-- WEBSITES I'VE BUILT -->
   <section class="section section-tint" id="sites" aria-labelledby="sites-h">
     <div class="section-head">
-      <span class="section-num">03 / 07</span>
+      <span class="section-num">04 / 08</span>
       <h2 id="sites-h">Some of the Websites I've Built</h2>
       <p class="section-sub">A selection of live sites and products I have shipped. Click any preview to visit.</p>
     </div>
@@ -285,7 +316,7 @@
   <!-- SKILLS -->
   <section class="section" id="skills" aria-labelledby="skills-h">
     <div class="section-head">
-      <span class="section-num">04 / 07</span>
+      <span class="section-num">05 / 08</span>
       <h2 id="skills-h">Stack and Skills</h2>
       <p class="section-sub">The tools I use day to day.</p>
     </div>
@@ -340,7 +371,7 @@
   <!-- OPEN SOURCE -->
   <section class="section section-tint" id="open-source" aria-labelledby="os-h">
     <div class="section-head">
-      <span class="section-num">05 / 07</span>
+      <span class="section-num">06 / 08</span>
       <h2 id="os-h">Open Source and Models</h2>
       <p class="section-sub">Where I publish code and fine tuned models.</p>
     </div>
@@ -381,7 +412,7 @@
   <!-- RECOGNITION -->
   <section class="section" id="recognition" aria-labelledby="rec-h">
     <div class="section-head">
-      <span class="section-num">06 / 07</span>
+      <span class="section-num">07 / 08</span>
       <h2 id="rec-h">Recognition</h2>
     </div>
 
@@ -417,7 +448,7 @@
   <!-- CONTACT -->
   <section class="section section-tint" id="contact" aria-labelledby="contact-h">
     <div class="section-head">
-      <span class="section-num">07 / 07</span>
+      <span class="section-num">08 / 08</span>
       <h2 id="contact-h">Get in touch</h2>
       <p class="section-sub">If you are building something that needs an AI layer, I would like to hear about it.</p>
     </div>
@@ -473,5 +504,6 @@
   document.querySelectorAll('.section, .work-item, .site-card, .profile-card').forEach(el => io.observe(el));
 </script>
 
+<script src="lab.js" defer></script>
 </body>
 </html>
