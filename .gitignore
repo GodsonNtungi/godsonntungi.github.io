@@ -3,3 +3,6 @@
 !styles.css
 !.gitignore
 !lab.js
+!demos.js
+!assets/
+!assets/**

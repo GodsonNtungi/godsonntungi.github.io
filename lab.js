@@ -9,11 +9,11 @@
   const sea_t = SEA.map(r => r.reduce((a, b) => a + b, 0));
   const KM_W = 10, KM_H = 6.15, FREQ = [...Array(25)].map((_, b) => 10 ** (1.5 + 0.1 * b) / 1000);
   const absorb = f => 0.11 * f * f / (1 + f * f) + 44 * f * f / (4100 + f * f); // dB per km, Thorp
-  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const css = n => getComputedStyle(sc).getPropertyValue(n).trim();  // read from the widget, so it can be themed on its own
   const $ = id => document.getElementById(id);
   const sSrc = $("lab-size"), sSpd = $("lab-speed"), gridCv = $("lab-grid");
   const ship = { x: 0, y: -1.7 };
-  let playMin = null, dragging = false;
+  let playMin = null, dragging = false, touched = false;
 
   const fit = cv => { const r = window.devicePixelRatio || 1, b = cv.getBoundingClientRect();
     cv.width = Math.round(b.width * r); cv.height = Math.round(b.height * r); };
@@ -33,8 +33,12 @@
     const [cx, cy] = toPx(0, 0);
     g.lineWidth = px; g.strokeStyle = css("--rule");
     g.font = `${11 * px}px ${css("--font-sans")}`;
+    const tint = css("--sea-tint");
+    if (tint) [4, 2, 1].forEach((km, i) => { g.fillStyle = tint; g.globalAlpha = .35 + i * .2; g.beginPath(); g.arc(cx, cy, km / KM_W * W, 0, 7); g.fill(); });
+    g.globalAlpha = 1;
     [1, 2, 4].forEach(km => { g.beginPath(); g.arc(cx, cy, km / KM_W * W, 0, 7); g.stroke();
-      g.fillStyle = muted; g.fillText(km + " km", cx + km / KM_W * W + 4 * px, cy - 4 * px); });
+      const rr = km / KM_W * W, a = km > 3 ? -0.3 : -0.62;  // labels on the ring, clear of each other and the corners
+      g.fillStyle = muted; g.fillText(km + " km", cx + rr * Math.cos(a) + 4 * px, cy + rr * Math.sin(a) - 2 * px); });
     const P = T.map(p => toPx(p.x, p.y));
     g.setLineDash([5 * px, 5 * px]); g.strokeStyle = muted; g.beginPath(); g.moveTo(...P[0]); P.forEach(q => g.lineTo(...q)); g.stroke(); g.setLineDash([]);
     P.forEach((q, t) => { g.fillStyle = red; g.globalAlpha = Math.max(.15, Math.min(1, (lvl[t] + 20) / 30)); g.beginPath(); g.arc(q[0], q[1], 3 * px, 0, 7); g.fill(); });
@@ -46,13 +50,22 @@
     g.fillStyle = red; g.beginPath();
     g.moveTo(bx + 16 * px, by); g.lineTo(bx + 6 * px, by - 7 * px); g.lineTo(bx - 14 * px, by - 7 * px); g.lineTo(bx - 14 * px, by + 7 * px); g.lineTo(bx + 6 * px, by + 7 * px); g.closePath(); g.fill();
     g.fillStyle = ink; g.fillText(`min ${at + 1}`, bx - 14 * px, by - 12 * px);
+    if (!touched) { g.fillStyle = red; g.font = `600 ${12 * px}px ${css("--font-sans")}`; g.fillText("← drag the ship →", bx - 52 * px, by + 26 * px); }
 
     const gg = gridCv.getContext("2d"), Wc = gridCv.width, Hc = gridCv.height, lo = seaMaxDb - 25;
+    const dots = css("--grid-style") === "dots", gridInk = css("--grid-ink") || ink;
     gg.clearRect(0, 0, Wc, Hc);
     for (let t = 0; t < 15; t++) for (let b = 0; b < 25; b++) {
       const tot = SEA[t][b] + shp[t][b], x = t * Wc / 15, y = Hc - (b + 1) * Hc / 25;
-      gg.globalAlpha = Math.max(.05, Math.min(1, (10 * Math.log10(tot) - lo) / 35)); gg.fillStyle = ink; gg.fillRect(x, y, Wc / 15 + .5, Hc / 25 + .5);
-      gg.globalAlpha = .85 * shp[t][b] / tot; gg.fillStyle = red; gg.fillRect(x, y, Wc / 15 + .5, Hc / 25 + .5);
+      const lvlA = Math.max(.05, Math.min(1, (10 * Math.log10(tot) - lo) / 35)), part = shp[t][b] / tot;
+      if (dots) {  // dot-matrix style: dot size is loudness, colour is who made the sound
+        const cw = Wc / 15, ch = Hc / 25, rad = Math.min(cw, ch) * (.12 + .36 * lvlA);
+        gg.globalAlpha = 1; gg.fillStyle = part > .5 ? red : gridInk; gg.globalAlpha = part > .5 ? .55 + .45 * part : .25 + .6 * lvlA;
+        gg.beginPath(); gg.arc(x + cw / 2, y + ch / 2, rad, 0, 7); gg.fill();
+      } else {
+        gg.globalAlpha = lvlA; gg.fillStyle = ink; gg.fillRect(x, y, Wc / 15 + .5, Hc / 25 + .5);
+        gg.globalAlpha = .85 * part; gg.fillStyle = red; gg.fillRect(x, y, Wc / 15 + .5, Hc / 25 + .5);
+      }
     }
     gg.globalAlpha = 1;
     if (playMin != null) { gg.strokeStyle = red; gg.lineWidth = 2 * px; gg.strokeRect(playMin * Wc / 15 + px, px, Wc / 15 - 2 * px, Hc - 2 * px); }
@@ -63,13 +76,14 @@
     $("lab-loud").textContent = (lmax > 0 ? "+" : "") + lmax.toFixed(0) + " dB";
     $("lab-high").textContent = "-" + (absorb(FREQ[24]) * dmin).toFixed(1) + " dB";
     $("lab-share").textContent = (share * 100).toFixed(share < .1 ? 1 : 0) + "%";
+    const bar = $("lab-bar"); if (bar) bar.style.setProperty("--p", (share * 100).toFixed(1) + "%");
     $("lab-size-v").textContent = (sSrc.value > 0 ? "+" : "") + sSrc.value + " dB";
     $("lab-speed-v").textContent = sSpd.value + " knots";
   }
 
   const kmAt = e => { const b = sc.getBoundingClientRect();
     return { x: ((e.clientX - b.left) / b.width - .5) * KM_W, y: (.5 - (e.clientY - b.top) / b.height) * KM_H }; };
-  sc.addEventListener("pointerdown", e => { dragging = true; sc.classList.add("is-drag"); sc.setPointerCapture(e.pointerId); Object.assign(ship, kmAt(e)); draw(); });
+  sc.addEventListener("pointerdown", e => { dragging = true; touched = true; sc.classList.add("is-drag"); sc.setPointerCapture(e.pointerId); Object.assign(ship, kmAt(e)); draw(); });
   sc.addEventListener("pointermove", e => { if (dragging) { Object.assign(ship, kmAt(e)); draw(); } });
   sc.addEventListener("pointerup", () => { dragging = false; sc.classList.remove("is-drag"); });
   sc.addEventListener("keydown", e => {

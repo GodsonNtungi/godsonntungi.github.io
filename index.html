@@ -1,509 +1,132 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Godson Ntungi · AI and Software Engineer</title>
-<meta name="description" content="Godson Ezekiel Ntungi. AI and software engineer based in Dar es Salaam. Machine learning, NLP, computer vision and full stack systems in production." />
-<meta name="author" content="Godson Ezekiel Ntungi" />
-<meta property="og:title" content="Godson Ntungi · AI and Software Engineer" />
-<meta property="og:description" content="AI and software engineer based in Dar es Salaam, Tanzania." />
-<meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A0A0A'/%3E%3Ctext x='50' y='66' font-family='-apple-system,sans-serif' font-size='52' fill='%23FFFFFF' text-anchor='middle' font-weight='600'%3EG%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Godson Ntungi</title><meta name="description" content="Machine learning engineer in Dar es Salaam. Models for messy, real-world data, and the systems that keep them running.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><script>document.documentElement.classList.add("js")</script><style>
+.ship { --ship: #E0461F; --ink: #12151B; --muted: #6B7280; --rule: #DDE3EA; --sensor: #2459C9; --sea-tint: #EAF1FA; --font-sans: "Inter Tight", sans-serif;
+  --grid-style: dots; --grid-ink: #5B6472; --sweep: rgb(36 89 201 / .08); }
+.card { gap: 14px; }
+.stage { background: #F3F6FA; }
+.mid { flex: 1; display: grid; grid-template-columns: 214px minmax(0, 1fr); gap: 20px; align-items: stretch; min-height: 0; }
+.dialbox { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.dial { position: relative; width: 206px; aspect-ratio: 1; }
+.dial svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(135deg); overflow: visible; }
+.dial .tk { stroke: #C9CED6; stroke-width: .6; } .dial .tk.big { stroke: #8A909B; stroke-width: .9; }
+.dial .track { stroke: #EEF0F3; }
+.dial .arc { stroke: url(#g); transition: stroke-dashoffset .35s cubic-bezier(.2,.8,.2,1); }
+.dial .knob { fill: #fff; stroke: #E0461F; stroke-width: 2.4; transition: cx .35s cubic-bezier(.2,.8,.2,1), cy .35s cubic-bezier(.2,.8,.2,1); }
+.dial .face { position: absolute; inset: 28px; border-radius: 50%; background: #fff; box-shadow: 0 10px 24px -12px rgb(18 21 27 / .28), 0 1px 2px rgb(18 21 27 / .06); display: grid; place-content: center; text-align: center; }
+.dial .face b { font-size: 54px; font-weight: 300; letter-spacing: -0.05em; line-height: .9; }
+.dial .face b sup { font-size: 18px; color: #8A909B; vertical-align: 30px; margin-left: 1px; }
+.dial .face > span { font-size: 12px; color: #6B7280; margin-top: 6px; }
+.ends { width: 184px; display: flex; justify-content: space-between; font-size: 11.5px; color: #8A909B; margin-top: -22px; }
+.status { font-size: 12px; font-weight: 600; color: #9A2E12; background: #FDEDE8; padding: 4px 10px; border-radius: 999px; }
+.side { display: flex; flex-direction: column; justify-content: center; gap: 12px; min-width: 0; }
+.reads { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #ECEEF2; border-bottom: 1px solid #ECEEF2; }
+.reads div { padding: 10px 0 10px 12px; font-size: 11.5px; color: #6B7280; } .reads div:first-child { padding-left: 0; } .reads div + div { border-left: 1px solid #ECEEF2; }
+.reads b { display: block; font-size: 16px; font-weight: 500; color: #12151B; margin-top: 2px; }
+.rec { display: flex; flex-direction: column; gap: 6px; }
+.rec .h { display: flex; justify-content: space-between; font-size: 12px; color: #6B7280; }
+.rec .h i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin: 0 4px 0 10px; vertical-align: 0; } .rec .h .sea { background: #5B6472; } .rec .h .shp { background: #E0461F; }
+.lab-grid { aspect-ratio: 15 / 6.4; } .cap { display: flex; justify-content: space-between; font-size: 11.5px; color: #8A909B; }
+.foot { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: center; background: #F5F6F8; border-radius: 16px; padding: 10px 10px 10px 14px; }
+.foot label { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; font-size: 12.5px; color: #6B7280; } .foot b { color: #12151B; font-size: 12.5px; font-weight: 500; min-width: 4rem; text-align: right; }
+.play { border: 0; background: #12151B; color: #fff; border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 13px; } .play:hover { background: var(--ship); }
+@media (max-width: 560px) { .mid { grid-template-columns: 1fr; } .foot { grid-template-columns: 1fr; } }
 
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="nav" role="banner">
-  <a href="#top" class="brand">
-    <span class="brand-mark">GN</span>
-    <span class="brand-name">Godson Ntungi</span>
-  </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="#work">Work</a>
-    <a href="#lab">Try it</a>
-    <a href="#sites">Websites</a>
-    <a href="#skills">Skills</a>
-    <a href="#open-source">Open Source</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
+.ship { padding: 0; background: #fff; }
+.ship .card { height: auto; flex: 1; width: 100%; border-radius: inherit; padding: 20px; display: flex; flex-direction: column; gap: 14px; background: #fff; overflow: hidden; }
+.ship .play { font-size: 13px; }
+.ship .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.ship .head h2 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; } .ship .head p { margin: 0; font-size: 13px; color: #6B7280; }
+@media (max-width: 560px) { .ship .head { flex-direction: column; align-items: flex-start; gap: 2px; } .ship .card { padding: 16px; } .ship .mid { grid-template-columns: 1fr !important; justify-items: center; } .ship .side { width: 100%; } .ship .foot { grid-template-columns: 1fr !important; } .ship .reads b { font-size: 15px; } .ship .rec .h, .ship .cap, .ship .ends, .ship .reads div { font-size: 12.5px !important; } }
+.ship .stage { border-radius: 16px; } .ship input[type=range] { width: 100%; min-width: 0; accent-color: var(--ship); }
+.ship button { font: inherit; cursor: pointer; }
+</style></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><a class="brand" href="#top"><img class="avatar" src="https://github.com/GodsonNtungi.png?size=120" alt="" width="36" height="36">Godson Ntungi</a>
+<nav aria-label="Sections"><a href="#machine-learning">ML</a><a href="#computer-vision">Computer</a><a href="#language-models">Language</a><a href="#data">Data</a><a href="#software">Software</a><a href="#electronics">Electronics</a><a class="cta" href="#contact">Work with me</a></nav></header>
 <main id="main">
+<section class="hero" id="top">
+  <div class="hero-left">
+  <div class="tile intro rise"><h1>I build models for messy, real world data.</h1>
+    <p>Machine learning engineer in Dar es Salaam. Forecasting, computer vision and Kiswahili language models, and the backends, apps and boards that keep them running.</p>
+    <div class="ctas"><a class="btn solid" href="#machine-learning">See the work</a><a class="btn" href="#contact">Work with me</a></div></div>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-grid">
-
-      <div class="hero-photo" aria-label="Photo of Godson Ezekiel Ntungi">
-        <span class="hero-photo-fallback" aria-hidden="true">GN</span>
-        <img src="https://github.com/GodsonNtungi.png?size=640" alt="Godson Ezekiel Ntungi" onerror="this.style.display='none'" />
-        <span class="hero-photo-status">
-          <span class="dot" aria-hidden="true"></span>
-          Available
-        </span>
-      </div>
-
-      <div class="hero-content">
-        <p class="hero-name">Godson Ezekiel Ntungi</p>
-        <p class="hero-role">AI and Software Engineer, Dar es Salaam</p>
-
-        <p class="hero-do-label">What I do</p>
-        <ul class="hero-do">
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I build ML and predictive models for lending, insurance and pensions</li>
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I build chatbots and AI systems that mix classical machine learning with modern LLMs</li>
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I build conversational AI and NLP in Kiswahili and English</li>
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I build computer vision and YOLO based systems</li>
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I build websites and web apps with Django, FastAPI and TypeScript</li>
-          <li><span class="hero-do-mark" aria-hidden="true"></span> I ship AI and software into production</li>
-        </ul>
-
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="#work">See selected work</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about" aria-labelledby="about-h">
-    <div class="section-head">
-      <span class="section-num">01 / 08</span>
-      <h2 id="about-h">About</h2>
-    </div>
-    <div class="prose two-col">
-      <p>
-        I am Godson Ezekiel Ntungi, an AI and software engineer. I hold a BSc in Computer Engineering and IT from the University of Dar es Salaam, where I was awarded Best Graduating Engineer by the Engineers Registration Board of Tanzania in 2024.
-      </p>
-      <p>
-        My work spans both sides of the stack: ML models for fraud detection, risk scoring, retrieval augmented QA, Swahili NLP and real time computer vision, and the production software around them. Web apps, APIs, dashboards and integrations, built to ship and to last.
-      </p>
-    </div>
-  </section>
-
-  <!-- SELECTED WORK -->
-  <section class="section" id="work" aria-labelledby="work-h">
-    <div class="section-head">
-      <span class="section-num">02 / 08</span>
-      <h2 id="work-h">Selected Work</h2>
-      <p class="section-sub">Production AI systems I built at SkyConnect, 2023 to present.</p>
-    </div>
-
-    <ol class="work-list">
-
-      <li class="work-item">
-        <div class="work-tag">Government, Lending</div>
-        <h3>HESLB Intelligent Loan Management System</h3>
-        <p>
-          Designed and built the AI layer of a predictive ecosystem for Tanzania's Higher Education Students Loans Board. Models for automated risk assessment, government subsidy forecasting, and loan demand planning, integrated into the loan lifecycle platform.
-        </p>
-        <ul class="chips">
-          <li>XGBoost</li><li>Forecasting</li><li>Risk Scoring</li><li>Django</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Pensions, Conversational AI</div>
-        <h3>PSSSF Beneficiary Virtual Assistant</h3>
-        <p>
-          The AI engine powering a bilingual (English and Kiswahili) virtual assistant deployed across web and mobile. Built the NLP pipeline for member self service, including contribution statements, claim status and domain specific Q&amp;A.
-        </p>
-        <ul class="chips">
-          <li>Swahili NLP</li><li>RAG</li><li>LLM fine tuning</li><li>Mobile and Web</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Pensions, Analytics</div>
-        <h3>PSSSF Executive BI Dashboard</h3>
-        <p>
-          Predictive analytics and data aggregation layer behind a centralised executive dashboard. Forecasting models surface complex KPIs and trend analysis so leadership can act on real time intelligence rather than month old spreadsheets.
-        </p>
-        <ul class="chips">
-          <li>Time series</li><li>KPI Forecasting</li><li>scikit learn</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Health Insurance, QA</div>
-        <h3>NHIF Interactive QA Bot</h3>
-        <p>
-          AI powered question answering for the National Health Insurance Fund. High accuracy responses on approved services, drugs and facility locations. Retrieval and reasoning pipeline tuned for member inquiries at scale.
-        </p>
-        <ul class="chips">
-          <li>Retrieval Augmented Generation</li><li>Vector Search</li><li>NLP</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Lending, Chatbot</div>
-        <h3>HESLB AI Customer Support Chatbot</h3>
-        <p>
-          Conversational AI giving beneficiaries instant access to loan breakdowns, repayment schedules and application status, with transparent denial reasons and eligibility criteria.
-        </p>
-        <ul class="chips">
-          <li>LLM</li><li>Knowledge Grounding</li><li>WhatsApp, Web</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Insurance, Fraud and Claims</div>
-        <h3>Assemble Insurance AI Claims and Risk Platform</h3>
-        <p>
-          A hybrid AI adjudication system combining medical knowledge reasoning with fraud pattern detection to automate claim review. Dual layer verification for clinical necessity and eligibility, plus risk scoring and churn prediction models for corporate and individual members.
-        </p>
-        <ul class="chips">
-          <li>Fraud Detection</li><li>Medical NLP</li><li>Churn Modeling</li>
-        </ul>
-      </li>
-
-      <li class="work-item">
-        <div class="work-tag">Conservation, Computer Vision</div>
-        <h3>Ngorongoro Conservation Area Vision and Gate Automation</h3>
-        <p>
-          Deployed a YOLO based vehicle counting and licence plate recognition system across NCAA entry points, wired into the boom barrier automation so vehicle processing happens at sensor speed.
-        </p>
-        <ul class="chips">
-          <li>YOLO</li><li>OCR, ALPR</li><li>Edge Deployment</li><li>Real time</li>
-        </ul>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- LAB: interactive ship-noise widget -->
-  <section class="section" id="lab" aria-labelledby="lab-h">
-    <div class="section-head">
-      <span class="section-num">03 / 08</span>
-      <h2 id="lab-h">Try it: listening for ships</h2>
-      <p class="section-sub">An underwater microphone hears waves, whales and ships at once. My model has to say how much of what it hears is a ship. Drag the ship around the microphone and watch the recording change.</p>
-    </div>
-    <div class="lab">
-      <div class="lab-left">
-        <canvas id="lab-scene" class="lab-scene" tabindex="0" aria-label="Top view of the sea. Drag the ship, or use the arrow keys, to move it around the microphone."></canvas>
-        <div class="lab-controls">
-          <label>Ship size <input id="lab-size" type="range" min="-20" max="30" value="-2"><span id="lab-size-v"></span></label>
-          <label>Speed <input id="lab-speed" type="range" min="4" max="24" value="12"><span id="lab-speed-v"></span></label>
-        </div>
-      </div>
-      <div class="lab-right">
-        <canvas id="lab-grid" class="lab-grid" aria-label="What the microphone records: 15 minutes left to right, low to high pitch bottom to top. Red is the ship."></canvas>
-        <p class="lab-caption">What the microphone records: 15 minutes, low to high pitch. Red is the ship.</p>
-        <dl class="lab-props">
-          <dt>Closest distance</dt><dd id="lab-dmin"></dd>
-          <dt>Loudest minute vs the sea</dt><dd id="lab-loud"></dd>
-          <dt>High pitch lost to distance</dt><dd id="lab-high"></dd>
-          <dt>Ship's share of the sound</dt><dd id="lab-share" class="lab-share"></dd>
-        </dl>
-        <button type="button" class="btn btn-ghost" id="lab-play">Play the 15 minutes</button>
-      </div>
-    </div>
-    <p class="lab-note">Real physics: twice as far is 6 dB quieter, and high pitches fade faster with distance, so far ships sound deeper. The sea behind it is generated to sound like open ocean.</p>
-  </section>
-
-  <!-- WEBSITES I'VE BUILT -->
-  <section class="section section-tint" id="sites" aria-labelledby="sites-h">
-    <div class="section-head">
-      <span class="section-num">04 / 08</span>
-      <h2 id="sites-h">Some of the Websites I've Built</h2>
-      <p class="section-sub">A selection of live sites and products I have shipped. Click any preview to visit.</p>
-    </div>
-
-    <div class="site-grid">
-
-      <a class="site-card" href="https://appziro.com" target="_blank" rel="noopener" aria-label="Visit Appziro">
-        <div class="site-frame">
-          <div class="site-chrome">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-            <span class="site-url">appziro.com</span>
-          </div>
-          <div class="site-shot">
-            <img loading="lazy" alt="Appziro homepage preview"
-              src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fappziro.com?w=1280&h=800" />
-          </div>
-        </div>
-        <div class="site-body">
-          <h3>Appziro</h3>
-          <p class="site-role">Software Engineering Firm</p>
-          <p>Custom software engineering for startups and enterprises. Web, mobile, cloud, AI and security. 145+ deployments to date.</p>
-          <span class="site-cta">Visit site →</span>
-        </div>
-      </a>
-
-      <a class="site-card" href="https://daywaka.com" target="_blank" rel="noopener" aria-label="Visit Daywaka">
-        <div class="site-frame">
-          <div class="site-chrome">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-            <span class="site-url">daywaka.com</span>
-          </div>
-          <div class="site-shot">
-            <img loading="lazy" alt="Daywaka homepage preview"
-              src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fdaywaka.com?w=1280&h=800" />
-          </div>
-        </div>
-        <div class="site-body">
-          <h3>Daywaka</h3>
-          <p class="site-role">Workforce Platform</p>
-          <p>A platform for flexible work. Matches people to work that fits their life, with AI driven candidate matching and demand forecasting for the gig economy.</p>
-          <span class="site-cta">Visit site →</span>
-        </div>
-      </a>
-
-      <a class="site-card" href="https://winga.co.tz" target="_blank" rel="noopener" aria-label="Visit Winga">
-        <div class="site-frame">
-          <div class="site-chrome">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-            <span class="site-url">winga.co.tz</span>
-          </div>
-          <div class="site-shot">
-            <img loading="lazy" alt="Winga homepage preview"
-              src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwinga.co.tz?w=1280&h=800" />
-          </div>
-        </div>
-        <div class="site-body">
-          <h3>Winga</h3>
-          <p class="site-role">AI WhatsApp Assistant</p>
-          <p>A Swahili and English AI assistant that runs WhatsApp customer service for small businesses in Tanzania. 3 second replies, catalogs, orders, voice handling.</p>
-          <span class="site-cta">Visit site →</span>
-        </div>
-      </a>
-
-      <a class="site-card" href="https://eve3.skyconnect.co.tz" target="_blank" rel="noopener" aria-label="Visit Eve 3.0">
-        <div class="site-frame">
-          <div class="site-chrome">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-            <span class="site-url">eve3.skyconnect.co.tz</span>
-          </div>
-          <div class="site-shot">
-            <img loading="lazy" alt="Eve 3.0 homepage preview"
-              src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Feve3.skyconnect.co.tz?w=1280&h=800" />
-          </div>
-        </div>
-        <div class="site-body">
-          <h3>Eve 3.0</h3>
-          <p class="site-role">SkyConnect, Conversational AI</p>
-          <p>The conversational AI engine I built for SkyConnect. The third generation of an LLM backed assistant powering bilingual customer support across enterprise deployments.</p>
-          <span class="site-cta">Visit site →</span>
-        </div>
-      </a>
-
-      <a class="site-card" href="https://combobox.appziro.com/" target="_blank" rel="noopener" aria-label="Visit Combobox">
-        <div class="site-frame">
-          <div class="site-chrome">
-            <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-            <span class="site-url">combobox.appziro.com</span>
-          </div>
-          <div class="site-shot">
-            <img loading="lazy" alt="Combobox preview"
-              src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcombobox.appziro.com?w=1280&h=800" />
-          </div>
-        </div>
-        <div class="site-body">
-          <h3>Combobox</h3>
-          <p class="site-role">Appziro, Product</p>
-          <p>An Appziro product I contributed to, alongside Daywaka and Winga in the same suite.</p>
-          <span class="site-cta">Visit site →</span>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills" aria-labelledby="skills-h">
-    <div class="section-head">
-      <span class="section-num">05 / 08</span>
-      <h2 id="skills-h">Stack and Skills</h2>
-      <p class="section-sub">The tools I use day to day.</p>
-    </div>
-
-    <div class="skill-groups">
-
-      <div class="skill-group">
-        <h3>Languages and Frameworks</h3>
-        <ul class="logo-list">
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="22" height="22"/> Python</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="22" height="22"/> Django</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="22" height="22"/> FastAPI</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="22" height="22"/> TypeScript</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <h3>ML and Deep Learning</h3>
-        <ul class="logo-list">
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" width="22" height="22"/> scikit learn</li>
-          <li><img loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" width="22" height="22"/> XGBoost</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="22" height="22"/> PyTorch</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="22" height="22"/> TensorFlow</li>
-          <li><span class="emoji-icon" aria-hidden="true">HF</span> Hugging Face</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <h3>Computer Vision and NLP</h3>
-        <ul class="logo-list">
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" width="22" height="22"/> OpenCV</li>
-          <li><img loading="lazy" alt="" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="48" height="22" class="wide-logo"/> YOLO, Ultralytics</li>
-          <li><span class="emoji-icon" aria-hidden="true">RAG</span> RAG and LLM fine tuning</li>
-          <li><span class="emoji-icon" aria-hidden="true">SW</span> Swahili NLP</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <h3>Infra and Integrations</h3>
-        <ul class="logo-list">
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="22" height="22"/> Docker</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="22" height="22"/> PostgreSQL</li>
-          <li><img loading="lazy" alt="" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="22" height="22"/> Linux</li>
-          <li><img loading="lazy" alt="" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="22" height="22"/> WhatsApp Business API</li>
-          <li><span class="emoji-icon" aria-hidden="true">BIO</span> Biometrics (Fingerprint, Face)</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- OPEN SOURCE -->
-  <section class="section section-tint" id="open-source" aria-labelledby="os-h">
-    <div class="section-head">
-      <span class="section-num">06 / 08</span>
-      <h2 id="os-h">Open Source and Models</h2>
-      <p class="section-sub">Where I publish code and fine tuned models.</p>
-    </div>
-
-    <div class="profile-grid">
-
-      <a class="profile-card" href="https://github.com/GodsonNtungi" target="_blank" rel="noopener">
-        <div class="profile-logo">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.19 1.18a11.1 11.1 0 0 1 5.81 0c2.22-1.49 3.19-1.18 3.19-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.41.35.78 1.04.78 2.1 0 1.52-.01 2.74-.01 3.11 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-        </div>
-        <h3>GitHub</h3>
-        <p class="profile-handle">@GodsonNtungi</p>
-        <p>41 repositories covering computer vision experiments, semantic search, environment classifiers and ML utilities.</p>
-        <ul class="profile-stats">
-          <li><strong>41</strong> repos</li>
-          <li><strong>YOLO</strong>, <strong>Quickdraw</strong> badges</li>
-        </ul>
-        <span class="venture-link">github.com/GodsonNtungi →</span>
-      </a>
-
-      <a class="profile-card" href="https://huggingface.co/GodsonNtungi" target="_blank" rel="noopener">
-        <div class="profile-logo">
-          <span class="hf-mark" aria-hidden="true">HF</span>
-        </div>
-        <h3>Hugging Face</h3>
-        <p class="profile-handle">@GodsonNtungi</p>
-        <p>31 models published, including Gemma fine tunes for HESLB and a curated Swahili LLMs collection.</p>
-        <ul class="profile-stats">
-          <li><strong>31</strong> models</li>
-          <li>Gemma 9B and 70B fine tunes</li>
-        </ul>
-        <span class="venture-link">huggingface.co/GodsonNtungi →</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- RECOGNITION -->
-  <section class="section" id="recognition" aria-labelledby="rec-h">
-    <div class="section-head">
-      <span class="section-num">07 / 08</span>
-      <h2 id="rec-h">Recognition</h2>
-    </div>
-
-    <ul class="awards">
-      <li>
-        <span class="award-year">2024</span>
-        <div>
-          <strong>Best Graduating Engineer</strong>, BSc Computer Engineering and IT, University of Dar es Salaam.
-          <span class="muted">Awarded by the Engineers Registration Board of Tanzania.</span>
-        </div>
-      </li>
-      <li>
-        <span class="award-year">2023</span>
-        <div>
-          <strong>Category Winner</strong>, Lablab.ai with Cohere and Qdrant Multilingual Semantic Search Hackathon.
-        </div>
-      </li>
-      <li>
-        <span class="award-year">&nbsp;</span>
-        <div>
-          <strong>Top 2% Participant</strong>, Zindi Africa, across machine learning and AI competitions on the continent.
-        </div>
-      </li>
-      <li>
-        <span class="award-year">&nbsp;</span>
-        <div>
-          <strong>Second Place</strong>, Power Hacks Tanzania, Waste Management Solutions (image classification).
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section section-tint" id="contact" aria-labelledby="contact-h">
-    <div class="section-head">
-      <span class="section-num">08 / 08</span>
-      <h2 id="contact-h">Get in touch</h2>
-      <p class="section-sub">If you are building something that needs an AI layer, I would like to hear about it.</p>
-    </div>
-
-    <div class="contact-grid">
-      <a class="contact-card primary" href="mailto:godsonezekiel31@gmail.com">
-        <span class="contact-label">Email</span>
-        <span class="contact-value">godsonezekiel31@gmail.com</span>
-      </a>
-      <a class="contact-card" href="tel:+255769882987">
-        <span class="contact-label">Phone</span>
-        <span class="contact-value">+255 769 882 987</span>
-      </a>
-      <a class="contact-card" href="https://wa.me/255769882987" target="_blank" rel="noopener">
-        <span class="contact-label">WhatsApp</span>
-        <span class="contact-value">+255 769 882 987</span>
-      </a>
-      <a class="contact-card" href="https://github.com/GodsonNtungi" target="_blank" rel="noopener">
-        <span class="contact-label">GitHub</span>
-        <span class="contact-value">@GodsonNtungi</span>
-      </a>
-      <a class="contact-card" href="https://huggingface.co/GodsonNtungi" target="_blank" rel="noopener">
-        <span class="contact-label">Hugging Face</span>
-        <span class="contact-value">@GodsonNtungi</span>
-      </a>
-      <div class="contact-card static">
-        <span class="contact-label">Location</span>
-        <span class="contact-value">Dar es Salaam, Tanzania</span>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <p>© <span id="year"></span> Godson Ezekiel Ntungi.</p>
-    <p class="muted">Hosted on GitHub Pages.</p>
+  <div class="stats">
+    <div class="tile stat rise"><b data-count="31">31</b><span>models on Hugging Face</span></div>
+    <a class="tile stat rise" href="#machine-learning"><b data-count="5">5</b><span>live demos to try on this page ↓</span></a>
+    <div class="tile stat rise"><b data-count="26">26</b><span>projects, six kinds of problem</span></div>
+    <a class="tile stat rise gh" href="https://github.com/GodsonNtungi"><b data-count="4">4</b><span>open-source repos →</span></a>
   </div>
-</footer>
+  </div>
+  <div class="tile ship rise"><div class="card">
+ <div class="head"><h2>Listening for ships</h2><p>Drag the ship past the microphone</p></div>
+ <div class="stage"><canvas id="lab-scene" class="lab-scene" tabindex="0" aria-label="Sea view. Drag the ship, or use the arrow keys."></canvas><svg class="ticks" viewBox="0 0 520 320" aria-hidden="true"><g stroke="#2459C9" stroke-opacity="0.22" stroke-width="1"><line x1="312.0" y1="160.0" x2="306.0" y2="160.0"/><line x1="310.2" y1="173.5" x2="307.3" y2="172.7"/><line x1="305.0" y1="186.0" x2="302.4" y2="184.5"/><line x1="296.8" y1="196.8" x2="294.6" y2="194.6"/><line x1="286.0" y1="205.0" x2="284.5" y2="202.4"/><line x1="273.5" y1="210.2" x2="272.7" y2="207.3"/><line x1="260.0" y1="212.0" x2="260.0" y2="206.0"/><line x1="246.5" y1="210.2" x2="247.3" y2="207.3"/><line x1="234.0" y1="205.0" x2="235.5" y2="202.4"/><line x1="223.2" y1="196.8" x2="225.4" y2="194.6"/><line x1="215.0" y1="186.0" x2="217.6" y2="184.5"/><line x1="209.8" y1="173.5" x2="212.7" y2="172.7"/><line x1="208.0" y1="160.0" x2="214.0" y2="160.0"/><line x1="209.8" y1="146.5" x2="212.7" y2="147.3"/><line x1="215.0" y1="134.0" x2="217.6" y2="135.5"/><line x1="223.2" y1="123.2" x2="225.4" y2="125.4"/><line x1="234.0" y1="115.0" x2="235.5" y2="117.6"/><line x1="246.5" y1="109.8" x2="247.3" y2="112.7"/><line x1="260.0" y1="108.0" x2="260.0" y2="114.0"/><line x1="273.5" y1="109.8" x2="272.7" y2="112.7"/><line x1="286.0" y1="115.0" x2="284.5" y2="117.6"/><line x1="296.8" y1="123.2" x2="294.6" y2="125.4"/><line x1="305.0" y1="134.0" x2="302.4" y2="135.5"/><line x1="310.2" y1="146.5" x2="307.3" y2="147.3"/><line x1="364.0" y1="160.0" x2="358.0" y2="160.0"/><line x1="362.4" y1="178.1" x2="359.5" y2="177.5"/><line x1="357.7" y1="195.6" x2="354.9" y2="194.5"/><line x1="350.1" y1="212.0" x2="347.5" y2="210.5"/><line x1="339.7" y1="226.8" x2="337.4" y2="224.9"/><line x1="326.8" y1="239.7" x2="324.9" y2="237.4"/><line x1="312.0" y1="250.1" x2="310.5" y2="247.5"/><line x1="295.6" y1="257.7" x2="294.5" y2="254.9"/><line x1="278.1" y1="262.4" x2="277.5" y2="259.5"/><line x1="260.0" y1="264.0" x2="260.0" y2="258.0"/><line x1="241.9" y1="262.4" x2="242.5" y2="259.5"/><line x1="224.4" y1="257.7" x2="225.5" y2="254.9"/><line x1="208.0" y1="250.1" x2="209.5" y2="247.5"/><line x1="193.2" y1="239.7" x2="195.1" y2="237.4"/><line x1="180.3" y1="226.8" x2="182.6" y2="224.9"/><line x1="169.9" y1="212.0" x2="172.5" y2="210.5"/><line x1="162.3" y1="195.6" x2="165.1" y2="194.5"/><line x1="157.6" y1="178.1" x2="160.5" y2="177.5"/><line x1="156.0" y1="160.0" x2="162.0" y2="160.0"/><line x1="157.6" y1="141.9" x2="160.5" y2="142.5"/><line x1="162.3" y1="124.4" x2="165.1" y2="125.5"/><line x1="169.9" y1="108.0" x2="172.5" y2="109.5"/><line x1="180.3" y1="93.2" x2="182.6" y2="95.1"/><line x1="193.2" y1="80.3" x2="195.1" y2="82.6"/><line x1="208.0" y1="69.9" x2="209.5" y2="72.5"/><line x1="224.4" y1="62.3" x2="225.5" y2="65.1"/><line x1="241.9" y1="57.6" x2="242.5" y2="60.5"/><line x1="260.0" y1="56.0" x2="260.0" y2="62.0"/><line x1="278.1" y1="57.6" x2="277.5" y2="60.5"/><line x1="295.6" y1="62.3" x2="294.5" y2="65.1"/><line x1="312.0" y1="69.9" x2="310.5" y2="72.5"/><line x1="326.8" y1="80.3" x2="324.9" y2="82.6"/><line x1="339.7" y1="93.2" x2="337.4" y2="95.1"/><line x1="350.1" y1="108.0" x2="347.5" y2="109.5"/><line x1="357.7" y1="124.4" x2="354.9" y2="125.5"/><line x1="362.4" y1="141.9" x2="359.5" y2="142.5"/><line x1="468.0" y1="160.0" x2="462.0" y2="160.0"/><line x1="467.2" y1="178.1" x2="464.2" y2="177.9"/><line x1="464.8" y1="196.1" x2="461.9" y2="195.6"/><line x1="460.9" y1="213.8" x2="458.0" y2="213.1"/><line x1="455.5" y1="231.1" x2="452.6" y2="230.1"/><line x1="448.5" y1="247.9" x2="445.8" y2="246.6"/><line x1="440.1" y1="264.0" x2="437.5" y2="262.5"/><line x1="430.4" y1="279.3" x2="427.9" y2="277.6"/><line x1="419.3" y1="293.7" x2="417.0" y2="291.8"/><line x1="407.1" y1="307.1" x2="405.0" y2="305.0"/><line x1="393.7" y1="319.3" x2="391.8" y2="317.0"/><line x1="379.3" y1="330.4" x2="377.6" y2="327.9"/><line x1="364.0" y1="340.1" x2="362.5" y2="337.5"/><line x1="347.9" y1="348.5" x2="346.6" y2="345.8"/><line x1="331.1" y1="355.5" x2="330.1" y2="352.6"/><line x1="313.8" y1="360.9" x2="313.1" y2="358.0"/><line x1="296.1" y1="364.8" x2="295.6" y2="361.9"/><line x1="278.1" y1="367.2" x2="277.9" y2="364.2"/><line x1="260.0" y1="368.0" x2="260.0" y2="362.0"/><line x1="241.9" y1="367.2" x2="242.1" y2="364.2"/><line x1="223.9" y1="364.8" x2="224.4" y2="361.9"/><line x1="206.2" y1="360.9" x2="206.9" y2="358.0"/><line x1="188.9" y1="355.5" x2="189.9" y2="352.6"/><line x1="172.1" y1="348.5" x2="173.4" y2="345.8"/><line x1="156.0" y1="340.1" x2="157.5" y2="337.5"/><line x1="140.7" y1="330.4" x2="142.4" y2="327.9"/><line x1="126.3" y1="319.3" x2="128.2" y2="317.0"/><line x1="112.9" y1="307.1" x2="115.0" y2="305.0"/><line x1="100.7" y1="293.7" x2="103.0" y2="291.8"/><line x1="89.6" y1="279.3" x2="92.1" y2="277.6"/><line x1="79.9" y1="264.0" x2="82.5" y2="262.5"/><line x1="71.5" y1="247.9" x2="74.2" y2="246.6"/><line x1="64.5" y1="231.1" x2="67.4" y2="230.1"/><line x1="59.1" y1="213.8" x2="62.0" y2="213.1"/><line x1="55.2" y1="196.1" x2="58.1" y2="195.6"/><line x1="52.8" y1="178.1" x2="55.8" y2="177.9"/><line x1="52.0" y1="160.0" x2="58.0" y2="160.0"/><line x1="52.8" y1="141.9" x2="55.8" y2="142.1"/><line x1="55.2" y1="123.9" x2="58.1" y2="124.4"/><line x1="59.1" y1="106.2" x2="62.0" y2="106.9"/><line x1="64.5" y1="88.9" x2="67.4" y2="89.9"/><line x1="71.5" y1="72.1" x2="74.2" y2="73.4"/><line x1="79.9" y1="56.0" x2="82.5" y2="57.5"/><line x1="89.6" y1="40.7" x2="92.1" y2="42.4"/><line x1="100.7" y1="26.3" x2="103.0" y2="28.2"/><line x1="112.9" y1="12.9" x2="115.0" y2="15.0"/><line x1="126.3" y1="0.7" x2="128.2" y2="3.0"/><line x1="140.7" y1="-10.4" x2="142.4" y2="-7.9"/><line x1="156.0" y1="-20.1" x2="157.5" y2="-17.5"/><line x1="172.1" y1="-28.5" x2="173.4" y2="-25.8"/><line x1="188.9" y1="-35.5" x2="189.9" y2="-32.6"/><line x1="206.2" y1="-40.9" x2="206.9" y2="-38.0"/><line x1="223.9" y1="-44.8" x2="224.4" y2="-41.9"/><line x1="241.9" y1="-47.2" x2="242.1" y2="-44.2"/><line x1="260.0" y1="-48.0" x2="260.0" y2="-42.0"/><line x1="278.1" y1="-47.2" x2="277.9" y2="-44.2"/><line x1="296.1" y1="-44.8" x2="295.6" y2="-41.9"/><line x1="313.8" y1="-40.9" x2="313.1" y2="-38.0"/><line x1="331.1" y1="-35.5" x2="330.1" y2="-32.6"/><line x1="347.9" y1="-28.5" x2="346.6" y2="-25.8"/><line x1="364.0" y1="-20.1" x2="362.5" y2="-17.5"/><line x1="379.3" y1="-10.4" x2="377.6" y2="-7.9"/><line x1="393.7" y1="0.7" x2="391.8" y2="3.0"/><line x1="407.1" y1="12.9" x2="405.0" y2="15.0"/><line x1="419.3" y1="26.3" x2="417.0" y2="28.2"/><line x1="430.4" y1="40.7" x2="427.9" y2="42.4"/><line x1="440.1" y1="56.0" x2="437.5" y2="57.5"/><line x1="448.5" y1="72.1" x2="445.8" y2="73.4"/><line x1="455.5" y1="88.9" x2="452.6" y2="89.9"/><line x1="460.9" y1="106.2" x2="458.0" y2="106.9"/><line x1="464.8" y1="123.9" x2="461.9" y2="124.4"/><line x1="467.2" y1="141.9" x2="464.2" y2="142.1"/></g></svg><div class="sweep" aria-hidden="true"></div></div>
+ <div class="mid">
+  <div class="dialbox">
+   <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#F9B699"/><stop offset="1" stop-color="#E0461F"/></linearGradient></defs>
+     <line x1="99.50" y1="50.00" x2="95.50" y2="50.00" class="tk big"/><line x1="99.16" y1="55.82" x2="97.17" y2="55.58" class="tk"/><line x1="98.13" y1="61.56" x2="96.19" y2="61.09" class="tk"/><line x1="96.44" y1="67.13" x2="94.56" y2="66.44" class="tk"/><line x1="94.10" y1="72.47" x2="92.32" y2="71.56" class="tk"/><line x1="91.16" y1="77.50" x2="89.49" y2="76.39" class="tk"/><line x1="87.64" y1="82.15" x2="86.12" y2="80.85" class="tk"/><line x1="83.60" y1="86.35" x2="82.24" y2="84.88" class="tk"/><line x1="79.10" y1="90.05" x2="77.92" y2="88.43" class="tk"/><line x1="74.19" y1="93.19" x2="73.21" y2="91.44" class="tk"/><line x1="68.94" y1="95.73" x2="67.41" y2="92.04" class="tk big"/><line x1="63.44" y1="97.64" x2="62.89" y2="95.72" class="tk"/><line x1="57.74" y1="98.89" x2="57.43" y2="96.92" class="tk"/><line x1="51.94" y1="99.46" x2="51.86" y2="97.46" class="tk"/><line x1="46.12" y1="99.35" x2="46.27" y2="97.35" class="tk"/><line x1="40.34" y1="98.55" x2="40.73" y2="96.59" class="tk"/><line x1="34.70" y1="97.08" x2="35.32" y2="95.18" class="tk"/><line x1="29.28" y1="94.95" x2="30.11" y2="93.14" class="tk"/><line x1="24.14" y1="92.21" x2="25.18" y2="90.50" class="tk"/><line x1="19.35" y1="88.87" x2="20.59" y2="87.30" class="tk"/><line x1="15.00" y1="85.00" x2="17.83" y2="82.17" class="tk big"/><line x1="11.13" y1="80.65" x2="12.70" y2="79.41" class="tk"/><line x1="7.79" y1="75.86" x2="9.50" y2="74.82" class="tk"/><line x1="5.05" y1="70.72" x2="6.86" y2="69.89" class="tk"/><line x1="2.92" y1="65.30" x2="4.82" y2="64.68" class="tk"/><line x1="1.45" y1="59.66" x2="3.41" y2="59.27" class="tk"/><line x1="0.65" y1="53.88" x2="2.65" y2="53.73" class="tk"/><line x1="0.54" y1="48.06" x2="2.54" y2="48.14" class="tk"/><line x1="1.11" y1="42.26" x2="3.08" y2="42.57" class="tk"/><line x1="2.36" y1="36.56" x2="4.28" y2="37.11" class="tk"/><line x1="4.27" y1="31.06" x2="7.96" y2="32.59" class="tk big"/><line x1="6.81" y1="25.81" x2="8.56" y2="26.79" class="tk"/><line x1="9.95" y1="20.90" x2="11.57" y2="22.08" class="tk"/><line x1="13.65" y1="16.40" x2="15.12" y2="17.76" class="tk"/><line x1="17.85" y1="12.36" x2="19.15" y2="13.88" class="tk"/><line x1="22.50" y1="8.84" x2="23.61" y2="10.51" class="tk"/><line x1="27.53" y1="5.90" x2="28.44" y2="7.68" class="tk"/><line x1="32.87" y1="3.56" x2="33.56" y2="5.44" class="tk"/><line x1="38.44" y1="1.87" x2="38.91" y2="3.81" class="tk"/><line x1="44.18" y1="0.84" x2="44.42" y2="2.83" class="tk"/><line x1="50.00" y1="0.50" x2="50.00" y2="4.50" class="tk big"/>
+     <circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="197.9 300"/>
+     <circle class="arc" cx="50" cy="50" r="42" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="197.9 400" stroke-dashoffset="197.9"/>
+     <circle class="knob" cx="92" cy="50" r="3.6"/></svg>
+    <div class="face"><b><span data-num></span><sup>%</sup></b><span>of the sound is ship</span></div></div>
+   <div class="ends"><span>sea</span><span>ship</span></div>
+   <span class="status" data-status></span><span hidden id="lab-share"></span><span hidden id="lab-bar"></span></div>
+  <div class="side">
+   <div class="reads"><div>Closest<b class="mono r-dmin"></b></div><div>Loudest<b class="mono r-loud"></b></div><div>Treble lost<b class="mono r-high"></b></div></div>
+   <div class="rec"><div class="h"><span>What the microphone records</span><span><i class="sea"></i>sea<i class="shp"></i>ship</span></div><canvas id="lab-grid" class="lab-grid" aria-label="What the microphone records. Red is ship."></canvas><div class="cap"><span>minute 1</span><span>pitch ↑</span><span>minute 15</span></div></div>
+  </div>
+ </div>
+ <div class="foot"><label>Ship size<input id="lab-size" type="range" min="-20" max="30" value="-2" aria-label="Ship size"><b id="lab-size-v" class="mono"></b></label><label>Speed<input id="lab-speed" type="range" min="4" max="24" value="12" aria-label="Speed"><b id="lab-speed-v" class="mono"></b></label><button type="button" class="play" id="lab-play">▶ Play</button></div><span hidden id="lab-dmin"></span><span hidden id="lab-loud"></span><span hidden id="lab-high"></span>
+</div></div>
+</section>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+<section class="disc" id="path"><div class="disc-head"><h2>How I got here</h2><p>From my first Flutter app to models that run every day. Each year added a kind of problem and the software to carry it.</p></div>
+<div class="track"><div class="track-nav"><button type="button" class="tn" data-dir="-1" aria-label="Earlier years">←</button><button type="button" class="tn" data-dir="1" aria-label="Later years">→</button></div>
+<ol class="years" tabindex="0" aria-label="Timeline, scroll sideways"><li class="rail" aria-hidden="true"><span class="fill"></span></li><li class="" data-tag="Apps"><span class="yr">2021</span><div class="pic svgpic"><svg viewBox="0 0 160 90" aria-hidden="true"><rect x="62" y="10" width="36" height="70" rx="7" fill="none" stroke="#9AA1AD" stroke-width="2"/><rect x="69" y="22" width="9" height="9" rx="2" fill="#D93C1A"/><rect x="82" y="22" width="9" height="9" rx="2" fill="#C3C8D0"/><rect x="69" y="35" width="9" height="9" rx="2" fill="#C3C8D0"/><rect x="82" y="35" width="9" height="9" rx="2" fill="#C3C8D0"/><rect x="69" y="48" width="9" height="9" rx="2" fill="#C3C8D0"/><rect x="82" y="48" width="9" height="9" rx="2" fill="#C3C8D0"/></svg></div><h3>First apps</h3><p>Flutter apps as a mobile intern, and a timetable system for my university.</p><p class="sw">Flutter, Dart</p></li><li class="" data-tag="First models"><span class="yr">2022</span><div class="pic"><img src="assets/timeline/t-ecg.jpg" alt="" loading="lazy"></div><h3>First models</h3><p>Heart signals (ECG), sign language and faces, served behind small APIs.</p><p class="sw">model APIs, a Telegram bot</p></li><li class="" data-tag="Search + vision"><span class="yr">2023</span><div class="pic"><img src="assets/timeline/t-seg.jpg" alt="" loading="lazy"></div><h3>Search and vision</h3><p>Won a multilingual search hackathon, tracked cars with YOLO, first language-model work.</p><p class="sw">Django and TypeScript web apps</p></li><li class="" data-tag="Production"><span class="yr">2024</span><div class="pic contain"><img src="assets/cards/rag.svg" alt="" loading="lazy"></div><h3>Chatbots in production</h3><p>Graduated top engineer. Retrieval chatbots live for a lender, then a chatbot platform.</p><p class="sw">FastAPI, Docker, vector databases</p></li><li class="" data-tag="vLLM, screening"><span class="yr">2025</span><div class="pic contain"><img src="assets/cards/finetune.svg" alt="" loading="lazy"></div><h3>vLLM, screening, risk</h3><p>Fine-tuned models served on vLLM, cervical cancer screening, claims fraud and risk.</p><p class="sw">WhatsApp and SMS services, job queues</p></li><li class="now" data-tag="Agents, edge"><span class="yr">2026</span><div class="pic"><img src="assets/timeline/t-road.jpg" alt="" loading="lazy"></div><h3>Agents and edge vision</h3><p>Agent platform, fingerprint checks, gate vision, research in water and handwriting.</p><p class="sw">Go and Rust backends, offline sync, mobile</p></li></ol></div></section>
 
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.section, .work-item, .site-card, .profile-card').forEach(el => io.observe(el));
+<section class="disc" id="machine-learning"><div class="disc-head"><h2>Machine learning</h2><p>Most of the data I work with is scarce, messy, or doesn&#x27;t look like the test. So I spend more time on how a model is checked than on squeezing the score.</p></div><div class="grid"><div class="tile demo-tile rise"><div class="t-head"><h3>Validating the way the test is built</h3><span class="live">Try it</span></div><div class="demo" id="split">
+  <div class="seg" role="group" aria-label="How to split"><button data-mode="random" aria-pressed="true">Random split</button><button data-mode="village" aria-pressed="false">Split by village</button></div>
+  <canvas aria-label="A map of villages; held-out villages in red"></canvas>
+  <div class="sp-legend"><span><i class="tr"></i>training</span><span><i class="te"></i>held out for testing</span></div>
+  <div class="sp-score"><span>Score it reports</span><span class="sp-bar"><i></i></span><b></b></div>
+  <p class="split-out" aria-live="polite"></p></div><p class="t-note">Predicting whether a recorded death was climate-sensitive. Train and test came from different villages, so I validated by whole village. Switch the split and see which records leak.</p></div><a class="tile rise has-img" href="https://github.com/GodsonNtungi/listening-for-ships"><div class="t-img cover"><img src="assets/cards/ships.webp" alt="" loading="lazy"></div><div class="t-body"><h3>Listening for ships in a noisy sea</h3><p>How much of an underwater recording is a passing ship? I built practice data, a splitter and a tree model, and found where the points go.</p><p class="metric">0.811 · loud ships cost 65% of lost points</p><span class=link>Code on GitHub →</span></div></a><a class="tile rise has-img" href="https://github.com/GodsonNtungi/water-storage-forecast"><div class="t-img fit"><img src="assets/cards/water-regimes.jpg" alt="" loading="lazy"></div><div class="t-body"><h3>Forecasting water storage worldwide</h3><p>Satellite water storage, one month ahead, on a global grid. Per-cell models on four climate sources, and a leak I caught in my own pipeline.</p><p class="metric">32% lower squared error than carrying forward</p><span class=link>Code on GitHub →</span></div></a><a class="tile rise has-img wide" href="https://github.com/GodsonNtungi/early-supernova-classifier"><div class="t-img fit"><img src="assets/cards/sky-lightcurves.jpg" alt="" loading="lazy"></div><div class="t-body"><h3>Spotting a supernova in its first 10 days</h3><p>Sorting sky alerts into supernova, variable star or active galaxy from brightness over time, early enough to point a telescope.</p><p class="metric">97% right from the first 10 days</p><span class=link>Code on GitHub →</span></div></a></div></section><section class="disc" id="computer-vision"><div class="disc-head"><h2>Computer vision</h2><p>I started with a YOLO traffic tracker in 2023. Today my vision models run on small computers at real gates, where the internet drops and the light changes all day.</p></div><div class="grid"><div class="tile demo-tile rise"><div class="t-head"><h3>Segmenting traffic in Dar es Salaam</h3><span class="live">Try it</span></div><div class="demo" id="ba">
+  <div class="ba-frame"><img src="assets/demo/dar-raw.jpg" alt="Busy Dar es Salaam street"><img class="ba-top" src="assets/demo/dar-seg.jpg" alt="Same street with 30 vehicles outlined by the model">
+  <span class="ba-line" aria-hidden="true"></span></div>
+  <label class="ba-range">Drag to compare <input type="range" min="0" max="100" value="55" aria-label="Show more of the model output"></label></div><p class="t-note">YOLO11 outlines 30 vehicles. It also shows the gap: there is no class for bajajis, which is why I fine-tune on local footage. Photo: Erasmus Kamugisha, CC BY-SA 4.0.</p></div><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/gate.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Vision at the gate, on the edge</h3><p>A plate detector triggers every camera, then plate reading, head counting and cross-camera matching run on one edge computer, offline.</p><p class="metric">200 to 350 ms end to end · accuracy 0.55 → 0.79</p></div></article><article class="tile rise no-img"><div class="t-body"><h3>Cervical cancer screening support</h3><p>The AI checks whether each clinic photo is good enough before judging it, so a blurry shot is retaken, not misread, then marks possible lesions for the nurse.</p><p class="metric">An aid: an expert reads every case</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/finger.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Fingerprints from a phone camera</h3><p>No scanner. Matching on both ridge texture and ridge-point geometry, over six months of experiments.</p><p class="metric">Wrong-person matches 10.7% → 3.3%</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/fusion.jpg" alt="" loading="lazy"></div><div class="t-body"><h3>Camera and radar, together</h3><p>Counting people with a camera and a radar. Training randomly blinds one sensor so the other learns to cover.</p><p class="metric">+7 to 21 points with the camera blinded</p></div></article><article class="tile rise has-img full"><div class="t-img fit"><img src="assets/cards/ecg.svg" alt="" loading="lazy"></div><div class="t-body"><span class=tag>In progress</span><h3>From paper ECGs back to heart signals</h3><p>Most ECGs in Tanzania exist only on paper. I&#x27;m working on turning a photo of a printout back into the signal.</p><p class="metric">Research</p></div></article></div></section><section class="disc" id="language-models"><div class="disc-head"><h2>Language models</h2><p>I fine-tune and serve open models myself, on rented GPUs, and I care about Kiswahili working as well as English.</p></div><div class="grid"><div class="tile demo-tile rise"><div class="t-head"><h3>Kiswahili search that cites its source</h3><span class="live">Try it</span></div><div class="demo" id="ksearch">
+  <input type="search" value="gawio" aria-label="Ask in Kiswahili or English" placeholder="Ask in Kiswahili or English">
+  <div class="chips"><button class="chip" type="button">faida</button><button class="chip" type="button">dividend</button><button class="chip" type="button">deni</button><button class="chip" type="button">new plant</button></div>
+  <ol class="ks-res" aria-live="polite"></ol>
+  <div class="ks-pages" aria-hidden="true"><span class="ks-ph">The six sample pages it searches</span><div class="ks-grid"></div></div></div><p class="t-note">Meaning search and word search take turns, with Kiswahili money words mapped so either language finds the page. A toy version over six sample pages, running in your browser.</p></div><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/handwriting.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Reading 200-year-old handwriting</h3><p>Property deeds from the 1700s and 1800s. A LoRA fine-tune of a 7B vision-language model, then a word-by-word vote across three.</p><p class="metric">Character error 49% → 5.25%</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/finetune.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Fine-tuning and serving with vLLM</h3><p>SFT with LoRA, then GRPO with a reward on the answers, on Qwen2.5 from 1.5B to 14B. Served with vLLM since 2025.</p><p class="metric">Many answers at once from one GPU</p></div></article><article class="tile rise has-img wide"><div class="t-img fit"><img src="assets/cards/agent.svg" alt="" loading="lazy"></div><div class="t-body"><h3>One agent, many tool servers</h3><p>An assistant on web, WhatsApp and SMS. One tool-calling agent, each business area its own MCP server.</p><p class="metric">About 24 tools, under a budget of 40</p></div></article></div></section><section class="disc" id="data"><div class="disc-head"><h2>Data</h2><p>Before any model, the data has to be right. These are pipelines and audits where getting the data right was the whole job.</p></div><div class="grid"><div class="tile demo-tile rise"><div class="t-head"><h3>Forecasting water storage, month by month</h3><span class="live">Try it</span></div><div class="demo" id="forecast" data-src="assets/demo/water-ea.json">
+  <canvas aria-label="East Africa water storage over time, with the next-month forecast"></canvas>
+  <label class="fc-range">Move through time <input type="range" min="12" aria-label="Last known month"></label>
+  <p class="fc-out" aria-live="polite"></p>
+  <div class="fc-stats"><div><b>138</b><span>months measured, 2002 to 2015; 22 missing</span></div><div><b>0.571</b><span>my full model's error, held-out months</span></div><div><b>0.683</b><span>error if you just carry last month forward</span></div></div></div><p class="t-note">Real satellite water storage for East Africa. The orange dot is next month&#x27;s forecast: last month plus the usual change for that time of year, learned only from the past. A simplified version of my model.</p></div><a class="tile rise has-img" href="https://github.com/GodsonNtungi/road-coverage-audit"><div class="t-img fit"><img src="assets/cards/road-exits.jpg" alt="" loading="lazy"></div><div class="t-body"><h3>Auditing a road-coverage score</h3><p>I rebuilt a hidden scoring pipeline for 9,379 US census tracts from 5 GB of map data, then measured what it misses.</p><p class="metric">Matched to 0.000000045 · rural exits hidden 4x more</p><span class=link>Code on GitHub →</span></div></a><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/elnino-map.jpg" alt="" loading="lazy"></div><div class="t-body"><h3>Flood and landslide risk for Tanzania</h3><p>76 years of rainfall history and a 51-member seasonal forecast, scored per region and per Dar es Salaam ward.</p><p class="metric">Every region and ward scored</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/satellite.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Four climate datasets on one grid</h3><p>ERA5-Land, GLDAS, FLDAS and IMERG come in different grids, units and calendars. One monthly land grid, one table.</p><p class="metric">One aligned table</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/scraper.svg" alt="" loading="lazy"></div><div class="t-body"><h3>A scraper that stores nothing twice</h3><p>The site sends no change headers, so I fingerprint the parsed items. If nothing changed, nothing is written.</p><p class="metric">Follows robots rules</p></div></article></div></section><section class="disc" id="software"><div class="disc-head"><h2>Software</h2><p>A model only matters if the system around it holds up. I build those systems too, mostly in Go, Rust and Python.</p></div><div class="grid"><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/chat.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Realtime chat on Postgres alone</h3><p>Many Go servers share live chat through Postgres, no Redis. A dropped phone gets up to 500 missed messages back.</p><p class="metric">1,107 people online · 95% of reads in 12 ms</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/audio.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Meeting audio that never drops</h3><p>Live audio to speech-to-text. When the service is full, the server keeps the audio and catches up later.</p><p class="metric">Uploads resume from the last byte</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/rust.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Python to Rust, proven identical</h3><p>A media server rewritten in Rust, then every recorded response replayed against both.</p><p class="metric">2,295 / 2,295 identical · 7 MB on a phone</p></div></article><article class="tile rise has-img"><div class="t-img fit"><img src="assets/cards/sync.svg" alt="" loading="lazy"></div><div class="t-body"><h3>Offline sync engine</h3><p>Records saved on the phone first; push what&#x27;s unsent, pull everything after the last number seen.</p><p class="metric">Works with no internet</p></div></article></div></section><section class="disc" id="electronics"><div class="disc-head"><h2>Electronics</h2><p>I design the boards and cases too. These are builds in progress; photos of the finished devices are coming.</p></div><div class="grid"><article class="tile rise has-img"><div class="t-img cover"><img src="assets/electronics/water-pcb.jpg" alt="" loading="lazy"></div><div class="t-body"><span class=tag>In progress</span><h3>Water tank monitor</h3><p>An ultrasonic sensor over each rooftop tank, an ESP32-S3, a KiCad board ready for the print shop, and a 3D-printed collar and case. A web page shows litres left.</p><p class="metric">Board ready to print</p></div></article><article class="tile rise has-img"><div class="t-img cover"><img src="assets/electronics/car-board.jpg" alt="" loading="lazy"></div><div class="t-body"><span class=tag>In progress</span><h3>WiFi robot car with a camera</h3><p>ESP32 and ESP32-CAM, a TB6612FNG motor driver, 18650 batteries and a 5 V regulator. Drive it and watch the live feed from a phone.</p><p class="metric">Breadboard prototype</p></div></article><article class="tile rise no-img"><div class="t-body"><span class=tag>In progress</span><h3>Home camera system</h3><p>An ESP32-CAM stream through a small Go proxy to an Android and Chromecast app, reachable anywhere over a private network.</p><p class="metric">Streaming end to end</p></div></article><article class="tile rise no-img"><div class="t-body"><span class=tag>In progress</span><h3>Phone video to a 3D room</h3><p>Turning a walk-through video into a 3D model with COLMAP, MASt3R and Gaussian splatting.</p><p class="metric">Research</p></div></article></div></section>
+
+<section class="disc" id="websites"><div class="disc-head"><h2>Websites I've built</h2><p>Product sites and apps, built end to end.</p></div><div class="grid sites"><figure class="tile rise site"><img src="assets/sites/whatsapp.jpg" alt="A WhatsApp assistant for small shops" loading="lazy"><figcaption><b>A WhatsApp assistant for small shops</b><span>Answers customers and takes orders in Kiswahili, 24 hours a day.</span></figcaption></figure><figure class="tile rise site"><img src="assets/sites/jobs.jpg" alt="A jobs app for flexible work" loading="lazy"><figcaption><b>A jobs app for flexible work</b><span>Matches people to gigs that fit their life, with AI matching behind it.</span></figcaption></figure><figure class="tile rise site"><img src="assets/sites/studio.jpg" alt="A software studio&#x27;s site" loading="lazy"><figcaption><b>A software studio&#x27;s site</b><span>A fast, modern landing page for a team that builds web, mobile and AI.</span></figcaption></figure></div></section>
+<section class="disc" id="recognition"><div class="disc-head"><h2>Recognition</h2></div><ul class="grid awards"><li class="tile rise award"><span class="y">2024</span><p><strong>Best Graduating Engineer</strong>, BSc Computer Engineering and IT, University of Dar es Salaam. <span class=muted>Engineers Registration Board of Tanzania.</span></p></li><li class="tile rise award"><span class="y">2023</span><p><strong>Category winner</strong>, Lablab.ai multilingual semantic search hackathon (Cohere and Qdrant).</p></li><li class="tile rise award"><span class="y">Zindi</span><p><strong>Top 2%</strong> of participants on Zindi Africa machine learning competitions.</p></li><li class="tile rise award"><span class="y">Zindi</span><p><strong>Second place</strong>, Power Hacks Tanzania, waste image classification.</p></li></ul></section>
+
+<section class="contact rise" id="contact"><h2>Work with me</h2>
+<p>AI assistants in Kiswahili and English, risk and fraud models, computer vision on the edge, and the products around them. The usual start is a two-week pilot on your real data.</p>
+<div class="ctas"><a class="btn solid inv" href="mailto:godsonezekiel31@gmail.com">Email me</a><a class="btn inv" href="https://wa.me/255769882987">WhatsApp +255 769 882 987</a><a class="btn inv" href="https://github.com/GodsonNtungi">GitHub</a></div></section>
+</main>
+<footer>Godson Ntungi · Dar es Salaam</footer>
+<script src="demos.js" defer></script><script src="lab.js"></script><script>
+(() => {
+  const s = document.getElementById("lab-share"), d = id => document.getElementById(id);
+  const sync = () => {
+    const p = parseFloat(s.textContent) || 0;
+    document.querySelectorAll("[data-status]").forEach(e => e.textContent = p < 10 ? "Mostly sea" : p < 50 ? "Ship heard" : "Ship dominates");
+    document.querySelectorAll(".bars").forEach(b => { const n = b.children.length, on = Math.round(p / 100 * n); [...b.children].forEach((c, i) => c.classList.toggle("on", i < on)); });
+    document.querySelectorAll(".pills").forEach(b => { const n = b.children.length, on = Math.ceil(p / 100 * n); [...b.children].forEach((c, i) => c.classList.toggle("on", i < on)); });
+    const f = Math.min(p, 100) / 100;
+    document.querySelectorAll(".dial .arc").forEach(a => a.style.strokeDashoffset = (1 - f) * 197.9);
+    document.querySelectorAll(".dial .knob").forEach(k => { const t = f * 1.5 * Math.PI; k.setAttribute("cx", 50 + 42 * Math.cos(t)); k.setAttribute("cy", 50 + 42 * Math.sin(t)); });
+    document.querySelectorAll("[data-num]").forEach(e => e.textContent = Math.round(p));
+    [["lab-dmin", "r-dmin"], ["lab-loud", "r-loud"], ["lab-high", "r-high"]].forEach(([a, b]) => document.querySelectorAll("." + b).forEach(e => e.textContent = d(a).textContent));
+  };
+  new MutationObserver(sync).observe(s, { childList: true, characterData: true, subtree: true }); sync();
+})();
 </script>
-
-<script src="lab.js" defer></script>
-</body>
-</html>
+</body></html>
